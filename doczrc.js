@@ -4,11 +4,12 @@ export default {
 
   // dest: "/public",
 
+  //sources of mdx
   files: "src/documentation/**/*.mdx",
   // files: "src/docz/xaa/*.mdx",
 
-  // assets/images dir
-  public: "src/documentation/assets",
+  // assets dir
+  // public: "public", // default public
 
   menu: [
     "Welcome!",
