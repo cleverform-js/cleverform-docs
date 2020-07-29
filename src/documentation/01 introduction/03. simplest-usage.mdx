@@ -1,0 +1,197 @@
+---
+name: Simplest Usage
+route: /intro/simplest-usage
+menu: Introduction
+---
+
+
+# Simplest Usage
+
+Cleverform is very easy to use and integrate in your project.
+Below is the example usage of the library. The example form is a registration form with basic fields.
+You can copy and experiment on the codes below to understand it more.
+
+The codes includes comments that will help you understand more the library.
+
+
+## HTML Part
+
+Below is the html code for the form. We use __bootstrap__ for the CSS library.
+
+Filename : _index.html_
+```html
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Include Bootstrap CSS library -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>CleverForm registration example</title>
+</head>
+
+<body>
+    <div class="container pt-5">
+
+        <h3 class="text-center">Registration form</h3>
+
+        <form method="POST" id="registrationForm" action="/">
+
+            <div class="form-group row">
+                <label for="f_name" class="col-sm-2 col-form-label">First name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="f_name" name="f_name">
+                    <!-- Div with `cf-msg` attribute will hold the error messages(if have error). -->
+                    <div cf-msg="f_name"></div>
+                    <!-- In the example above, when the `f_name` field have validation error the div will hold the error msg of the `f_name`. Same as the other fields below. -->
+                </div>
+            </div>
+        
+            <div class="form-group row">
+                <label for="l_name" class="col-sm-2 col-form-label">Last name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="l_name" name="l_name">
+                    <div cf-msg="l_name"></div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email" name="email">
+                    <div cf-msg="email"></div>
+                </div>
+            </div>
+        
+            <div class="form-group row">
+                <label for="password" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="password" name="password">
+                    <div cf-msg="password"></div>
+            
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <label for="confirm_password" class="col-sm-2 col-form-label">Confirm password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="confirm_password" name="confirm_password">
+                    <div cf-msg="confirm_password"></div>
+            
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-10 offset-sm-2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="tou_pp" name="tou_pp">
+                        <label class="form-check-label" for="tou_pp">
+                            Accept <a href="#">Terms of Use</a> & <a href="#">Privacy Policy</a>
+                        </label>
+                        <div cf-msg="tou_pp"></div>
+                    </div>
+                </div>
+            </div>
+            
+        
+            <div class="form-group row">
+                <div class="offset-sm-2 col-sm-10">
+                    <!-- The `cf-submitting-msg` attribute value will be the submitting message when the form is in submitting status. It will replace the `Register` value of the button -->
+                    <button disabled type="submit" class="btn btn-primary btn-block" cf-submitting-msg='Registering...'>Register</button>
+                </div>
+            </div>
+        
+        </form>
+
+    </div>
+
+    <!-- CleverForm library -->
+    <script src="cleverform.js"></script>
+
+    <!-- Include `sample.js` -->
+    <script src="sample.js"></script>
+
+</body>
+
+</html>
+```
+
+## Javascript Part
+Below is the javascript code for using the __CleverForm__ for the html form above.
+
+Filename : _sample.js_
+
+```js
+const regForm = new CleverForm({
+
+    // The id of the html form
+    id: "registrationForm",
+
+    // The validation rules per field's name, one or many validation rules per field seperated by pipe '|'
+    rules: {
+        f_name: "required | minLen:2 | maxLen:50",
+        l_name: "required | betweenLen:2,50",
+        email: "required | email",
+        password: "required | minLen:6 ",
+        confirm_password: "required| matched:password",
+        tou_pp: "accepted",
+    },
+
+    // Customize the name of the field in the error messages by overriding some field's name.
+    customName: {
+        f_name: "first name",
+        l_name: "last name",
+        confirm_password: "confirm possword",
+        tou_pp: "terms of use & privacy policy",
+    },
+
+    // Customized the css Class to be used by CleverForm depending on the fields status( with or with out error)
+    // in this example we use bootstrap css class for fields status
+    cssClass: {
+        fieldSuccess: "is-valid",
+        fieldError: "is-invalid",
+        labelSuccess: "valid-feedback",
+        labelError: "invalid-feedback",
+    },
+
+
+    // formEvents property holds the events listeners where you can response to.
+    formEvents: {
+
+        // Event when the form is initialized by CleverForm
+        onInit: function() {
+
+            // Your codes here ...
+            console.log("regForm Initialized! ");
+        },
+
+        // Event when the form have field with validation error when submitted.
+        onError: function(errors, errorsCount, attemptsWithError) {
+
+            // Your codes here ...
+            console.clear();
+            console.log("Form has validation error.");
+
+            console.log("Errors object: ", errors);
+            console.log("Fields with error: ", errorsCount);
+            console.log("Form submit attempts : ", attemptsWithError);
+        },
+
+        // Event when the form have no validation error.
+        // When you omit `onSuccess` event listener, the form will be submitted via form native POST/GET request (ex. on PHP server)
+        // But when you use `onSuccess` event listener, your program is intended to be send via XHR (ex: AJAX , fetch and axios)
+        onSuccess: function(validatedData, formData) { //, formSubmit
+
+            // Your codes here ...
+            // You can submit `formData` object via XHR (ex: AJAX , fetch and axios)..
+
+            console.clear();
+            console.log("Success , Form has No error.");
+
+            console.log("validatedData Object: ", validatedData);
+            console.log("formData Object: ", formData);
+
+
+        },
+  }
+
+});
+```

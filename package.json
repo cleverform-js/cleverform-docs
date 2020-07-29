@@ -1,0 +1,28 @@
+{
+  "name": "cleverform-docs",
+  "version": "0.1.0",
+  "description": "The official documentation for cleverform.js library.",
+  "private": true,
+  "main": "doczrc.js",
+  "scripts": {
+    "dev": "docz dev",
+    "build": "docz build",
+    "serve": "docz build && docz serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cleverform-js/cleverform-docs.git"
+  },
+  "author": "Jose Clet II",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cleverform-js/cleverform-docs/issues"
+  },
+  "homepage": "https://github.com/cleverform-js/cleverform-docs#readme",
+  "dependencies": {
+    "docz": "^2.3.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
