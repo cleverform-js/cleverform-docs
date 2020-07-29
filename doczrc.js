@@ -2,7 +2,7 @@
 export default {
   title: "CleverForm Docs",
 
-  dest: "/public",
+  // dest: "/public",
 
   files: "src/documentation/**/*.mdx",
   // files: "src/docz/xaa/*.mdx",
