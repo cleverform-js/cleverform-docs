@@ -9,7 +9,7 @@ export default {
   // files: "src/docz/xaa/*.mdx",
 
   // assets dir
-  // public: "public", // default public
+  // public: "public", // default publicg
 
   menu: [
     "Welcome!",
