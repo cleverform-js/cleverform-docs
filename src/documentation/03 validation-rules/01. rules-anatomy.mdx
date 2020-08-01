@@ -1,0 +1,82 @@
+---
+name: Rules anatomy
+route: /rules/rules-anatomy
+menu: Validation rules
+---
+
+# Validation rules
+
+Easily add form validations for every `form` fields using Cleverform validation rules.
+
+
+- validation Rules has its own unique name.
+
+- Rules precedence is left to right. If one validation fail it will throw validation error msg and the next validation rules will be ignored (per field).
+
+- Validation rule names are semantic. Describe what its done as a validation rule.
+
+- Some validation rules may  modify field attribute. Ex. required.
+
+- Some rules have parameter/s, some parameters are required , some are optional.
+
+- You can use multiple rules in one field by using pipe  "|"
+
+
+
+
+```js
+// example of multiple rules for field `first_name`
+"first_name" : "required | minLen:6 | maxLen 10"
+```
+
+<!-- -be careful in combining validation rules, ex: "min:10 | max:8" -->
+
+
+<!-- -Status
+-comment? -->
+
+## Rule parts
+A validation rule contain __3__ main parts.
+
+
+
+<!-- `[rule name]:[param 1],[param 2],[param nth]` -->
+
+<!-- ```js
+'minLen:1'
+``` -->
+
+| Part | Description | Example
+| :-- | :-: | :-: 
+| name | - the unique name of the validation rule | _required_ ,  _minLen_ , _maxLen_
+| colon (:) | - the colon char separates the `rule name` and its `parameters`. <br/> __Optional__ | _:_
+| parameters| - rule's parameters needed for validation. Multiple parameters is seperated by comma (,) <br/> __Optional__ | It can be _number_ or _string_ type
+
+⚠️ Rule names are case sensitive, so _minLen_ is different from _minlen_.
+
+
+## Example Usage
+
+```js
+
+const regForm = new CleverForm({
+
+    // The id of the html form
+    id: "registrationForm",
+
+    // 6 fields under validation
+    rules: {
+        first_name: "required | minLen:2 | maxLen:50",  // 3 validation rules
+        last_name: "required | betweenLen:2,50", // 2 validation rules
+        email: "required | email",  // 2 validation rules
+        password: "required | minLen:6 ",  // 2 validation rules
+        confirm_password: "required| matched:password",  // 2 validation rules
+        terms_and_condition: "accepted",  // 1 validation rule
+    },
+    
+    // Other options...
+});
+```
+
+Check the __Built in rules__ page for the complete lists of available validation rules.
+
