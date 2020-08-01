@@ -7,7 +7,7 @@ const rulelist = (props) => {
     return (
         <a
           href={`#${props.name}`}
-          style={{ textDecoration: "none", color: "#599de1" , fontWeight : "bold" ,  display : "block" }}
+          style={{ textDecoration: "none", color: "#b3cdf6" , fontWeight : "bold" ,  display : "block" }}
         >
           <i>{props.name}</i>
         </a>
