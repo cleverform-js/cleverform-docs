@@ -25,7 +25,7 @@ const ruleDescription = (props) => {
       <p>{props.description}</p>
 
       {notes}
-      <hr style={{ borderBottom: "1px solid red !important" }} />
+      <hr style={{ borderBottom: "1px solid #b3cdf6 !important" }} />
     </div>
   );
 };
