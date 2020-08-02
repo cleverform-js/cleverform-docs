@@ -29,10 +29,10 @@ export default {
       name: "Validation rules",
       menu: [
         "Rules anatomy",
-        "Rules behavior",
+        // "Rules behavior",
         "Built-in rules",
-        "Custom validation rule",
-        "Customized error message",
+        "Custom validation rule", //  03. custom-validation-rule
+        "Customized error message", // 04. customized-error-message
       ],
     },
   ],
