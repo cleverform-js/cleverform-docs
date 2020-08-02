@@ -4,20 +4,82 @@ route: /cleverform-instance
 ---
 
 
-# The Cleverform instance
-..............
+# Cleverform instance
+Instantiate every form in your html to have easy , fast and elegant form validation.
 
 
 
+___
 
-## Creating CF instance
-....
+## Instantiation
+
+Instantiate using the __CleverForm__ _function constructor_ (library namespace). Make sure that you install/imported the library properly in your project.
+
+```js
+
+const regForm = new CleverForm({
+    // The id of the html form
+    id: "registrationForm",
+    rules: {
+        f_name: "required | minLen:2 | maxLen:50",  
+        //other field validationrules here...
+    },
+    // Other options here...
+});
+
+```
+
+
+
+The Cleverform function  constructor accepts an object as parameter.
+
+The object parameter contains the __options/configuration__ of the instance.
+
+In the example above, the object option contains the __id__ and __rules__ properties together with its values. 
+
+The __id__ and __rules__ property are the minimal options to have a working form validation.
+
+💡 You need to use the __new__  keyword to create a new CleverForm instance.
+
+___
+
+
+## Displaying of Error
+Create a __div/label/p__ tag that have a __cf-msg=""__ attribute.
+
+Assign the __field name__ value to the __cf-msg__ attribute _(field that you want to associate)_.
+
+That __div/label/p__ tag will hold the error message when the field have a  validation error. 
+
+
+
+```html
+<form method="POST" id="registrationForm" >
+
+    <div class="row">
+        <label for="f_name">First name</label>
+        <div >
+            <input type="text" class="field" id="f_name" name="f_name">
+            <!-- The div tag below will hold the error message of the field. -->
+            <div cf-msg="f_name"></div>
+        </div>
+    </div>
+
+    <!-- Other fields here ... -->
+    <!-- Submit button here... -->
+
+</form>
+```
+
+💡 You can display the error message for every field where ever you want as long as it's inside the __form__ tag.
+
+💡 Omitting `<div cf-msg="fieldName"></div>` for a field will not display an error message for that field.
+
+___
 
 ## Options
 ....
 
-## Displaying error
-....
 
 ## Form events
 ....

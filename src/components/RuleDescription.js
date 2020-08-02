@@ -9,7 +9,7 @@ const ruleDescription = (props) => {
   const notes = props.notes
     ? props.notes.map((note, index) => (
         <p key={index + 1}>
-          💡 Note: <span dangerouslySetInnerHTML={{ __html: note }} />{" "}
+          <span>💡</span> Note: <span dangerouslySetInnerHTML={{ __html: note }} />{" "}
         </p>
       ))
     : "";
