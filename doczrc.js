@@ -18,11 +18,22 @@ export default {
       menu: ["What is cleverform.js?", "Installation", "Simplest Usage"],
     },
 
-    "Cleverform instance",
+    // "Cleverform instance",
+
+    {
+      name: "CleverForm instance",
+      menu: ["Instantiation", "Options", "Form events"],
+    },
 
     {
       name: "Validation rules",
-      menu: ["Rules anatomy", "Rules behavior", "Built-in rules"],
+      menu: [
+        "Rules anatomy",
+        "Rules behavior",
+        "Built-in rules",
+        "Custom validation rule",
+        "Customized error message",
+      ],
     },
   ],
 
