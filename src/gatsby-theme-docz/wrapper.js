@@ -22,7 +22,6 @@ const Wrapper = ({ children, doc }) => (
         <link rel="icon" type="image/png" sizes="32x32" href="/public/assets/icon/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="96x96" href="/public/assets/icon/favicon-96x96.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/public/assets/icon/favicon-16x16.png" />
-        <link rel="manifest" href="/public/assets/icon/manifest.json" />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
