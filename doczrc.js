@@ -1,6 +1,6 @@
 
 export default {
-  title: "CleverForm Docs",
+  title: "CleverForm.js",
 
   // dest: "/public",
 
@@ -31,8 +31,8 @@ export default {
         "Rules anatomy",
         // "Rules behavior",
         "Built-in rules",
-        "Custom validation rule", //  03. custom-validation-rule
-        "Customized error message", // 04. customized-error-message
+        "Customized error message", //  03. custom-validation-rule
+        "Custom validation rule", // 04. customized-error-message
       ],
     },
   ],
