@@ -7,18 +7,18 @@ menu: Introduction
 
 # Simplest Usage
 
-Cleverform is very easy to use and integrate in your project.
+Cleverform is very easy to use and integrate into your project.
 Below is the example usage of the library. The example form is a registration form with basic fields.
 You can copy and experiment on the codes below to understand it more.
 
-The codes includes comments that will help you understand more the library.
+The code snippets include comments that will help you understand more the library.
 
 
-## HTML Part
+## Create your form
 
 Below is the html code for the form where we will add form validation using Cleverform. 
 
-Filename : _index.html_
+<!-- Filename : _index.html_ -->
 ```html
 <form method="POST" id="registrationForm" >
 
@@ -31,16 +31,18 @@ Filename : _index.html_
         </div>
     </div>
 
-    <!-- Other fields here ... -->
+    <!-- Last name and Other fields here ... -->
     <!-- Submit button here... -->
 
 </form>
 ```
 
-## Javascript Part
-Below is the javascript code for using the __CleverForm__ for the html form above.
+## Instantiate your form
+Below is a simple way og implementing form validation using  __CleverForm__ constructor function. 
+CleverForm does every field's validation under the hood.
 
-Filename : _sample.js_
+
+<!-- Filename : _sample.js_ -->
 
 ```js
 const regForm = new CleverForm({
@@ -48,35 +50,65 @@ const regForm = new CleverForm({
     // The id of the html form
     id: "registrationForm",
 
-    // The validation rules per field's name, one or many validation rules per field seperated by pipe '|'
-    // For the complete lists of the validation rules, go to the CF validation rules docs page
+    // The validation rules per field's name, multiple rules are seperated by pipe '|'
     rules: {
         f_name: "required | minLen:2 | maxLen:50",
         l_name: "required | betweenLen:2,50",
-        email: "required | email",
-        password: "required | minLen:6 ",
-        confirm_password: "required| matched:password",
-        tou_pp: "accepted",
+        //...
     },
 
-    // Customize the name of the field in the error messages by overriding some field's name.
-    customName: {
-        f_name: "first name",
-        l_name: "last name",
-        confirm_password: "confirm possword",
-        tou_pp: "terms of use & privacy policy",
-    },
+    formEvents: {
 
-    
-    // Other Advance Cleverform Options/Settings
-    /**
-     * - Setting up custom CSS classes(Own stylesheet or using CSS Lirary like Bootstrap and Bulma)
-     * - Listen to Cleveform events like on `onInit`, `onError` and `onSuccess`
-     * /
-    
+        // onSuccess event  hold a callback function/event listener
+        // that will run when the form is submitted with out validation errors
+        
+        onSuccess: function(validatedData) {
 
+            console.log("Success, Form has No validation error. Submit data in the server (ex: via AJAX , fetch and axios)");
+            console.log("validatedData Object: ", validatedData);
+
+        },
+
+        // other events here...
+    }
+
+    // ...
 });
 ```
 
+
+## Accessing value
+
+You can easily access field's current value in the form at __runtime__ by accessing the Cleverform instance properties.
+0
+```js
+
+// continuation of `regForm` instantiation above...
+
+var firstName = regForm.f_name;
+var lastName = regForm.l_name;
+
+console.log(firstName) // prints the f_name value
+console.log(lastName)  // prints the l_name value
+
+```
+
+___
+
+>💡 HTML file with multiple forms must have an individual instantiation
+
+```js
+// Example
+const form1 = new CleverForm({...});
+const form2 = new CleverForm({...});
+```
+
+
 ### Example in action
 Go to www.facebook.com for Basic example in action
+
+<!-- // Other Advance Cleverform Options/Settings
+    /**
+     * - Setting up custom CSS classes(Own stylesheet or using CSS Lirary like Bootstrap and Bulma)
+     * - Listen to Cleveform events like on `onInit`, `onError` and `onSuccess`
+     * / -->
