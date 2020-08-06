@@ -34,11 +34,14 @@ Below is the html code for the form where we will add form validation using Clev
     <!-- Last name and Other fields here ... -->
     <!-- Submit button here... -->
 
+    <!-- Import cleverform -->
+    <script src="/your-path/cleverform.dev.js" ></script>
+
 </form>
 ```
 
 ## Instantiate your form
-Below is a simple way og implementing form validation using  __CleverForm__ constructor function. 
+Below is a simple way of implementing form validation using  __CleverForm__ constructor function. 
 CleverForm does every field's validation under the hood.
 
 
@@ -64,7 +67,8 @@ const regForm = new CleverForm({
         
         onSuccess: function(validatedData) {
 
-            console.log("Success, Form has No validation error. Submit data in the server (ex: via AJAX , fetch and axios)");
+            //submit validatedData here via http request in the server
+            console.log("Success, Form has No validation error. Submit data via http request in the server (ex: via AJAX , fetch and axios)");
             console.log("validatedData Object: ", validatedData);
 
         },
@@ -76,11 +80,14 @@ const regForm = new CleverForm({
 });
 ```
 
+That's it! 🎉
+
+You just implemented a form validation. 👏
+
 
 ## Accessing value
 
-You can easily access field's current value in the form at __runtime__ by accessing the Cleverform instance properties.
-0
+Optionally, you can easily access the field's current value in the form at __runtime__ by accessing the instance's properties.
 ```js
 
 // continuation of `regForm` instantiation above...
