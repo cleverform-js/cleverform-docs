@@ -10,7 +10,7 @@ export default {
 
   // assets dir
   // public: "public", // default publicg
-
+  
   menu: [
     "Welcome!",
     {
@@ -49,7 +49,9 @@ export default {
   themeConfig: {
     colors: {
       header: {
-        bg: "#99CCFF",
+        // bg: "#99CCFF",
+        bg: "#a8dcfe",
+
         button: {
           bg: "#2C3E50",
           color: "#fff",
