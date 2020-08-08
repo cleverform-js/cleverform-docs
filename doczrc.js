@@ -1,6 +1,6 @@
 
 export default {
-  title: "CleverForm Docs",
+  title: "CleverForm.js",
 
   // dest: "/public",
 
@@ -10,7 +10,7 @@ export default {
 
   // assets dir
   // public: "public", // default publicg
-
+  
   menu: [
     "Welcome!",
     {
@@ -31,8 +31,8 @@ export default {
         "Rules anatomy",
         // "Rules behavior",
         "Built-in rules",
-        "Custom validation rule", //  03. custom-validation-rule
-        "Customized error message", // 04. customized-error-message
+        "Customized error message", //  03. custom-validation-rule
+        "Custom validation rule", // 04. customized-error-message
       ],
     },
   ],
@@ -49,7 +49,9 @@ export default {
   themeConfig: {
     colors: {
       header: {
-        bg: "#99CCFF",
+        // bg: "#99CCFF",
+        bg: "#a8dcfe",
+
         button: {
           bg: "#2C3E50",
           color: "#fff",

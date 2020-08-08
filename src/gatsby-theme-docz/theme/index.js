@@ -17,10 +17,14 @@ export default merge(typography, {
   showLivePreview: true,
   // Show editor when a playground is rendered
   showPlaygroundEditor: true,
+  
   // Show dark/light mode switch toggle in header
-  showDarkModeSwitch: true,
-  // Display edit this page button on every page
-  showMarkdownEditButton: true,
+  // showDarkModeSwitch: true,
+
+  // Display edit this page button on every page // allow other to edit the source code and request pull request,
+  // if set to true, the  repo lin in the package.json must be the repo of cleverform-docs
+  // showMarkdownEditButton: true,
+  
   // Wrap the playground editor and preview in iframes to avoid style/script collisions
   useScopingInPlayground: false,
   colors: {

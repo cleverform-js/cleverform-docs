@@ -1,0 +1,104 @@
+---
+name: Customized error message
+route: /rules/customized-error-message
+menu: Validation rules
+---
+# Customized error message
+
+You can add customized error messages for built-in rules.
+
+Default error messages will be overridden  by your custom message.
+
+Use the __CleverForm's__ static method __customErrorMessage__ API to override the default error messages.
+
+>   CleverForm.customErrorMessage(messagesObject)
+
+⚠️ You don't need to use the __new__ keyword when adding a custom error message.
+
+
+
+## Example
+ customErrorMessage method accepts __[ruleName] : [customMessage]__ value pairs as shown below.
+
+ ```js
+
+// Customized error messages
+CleverForm.customErrorMessage({
+
+    required:'You must fill up :fieldName field.',
+    minLen:'The :fieldName should be atleast :min characters.',
+    maxLen: 'The :fieldName should not greater than :max characters.',
+    // other rule's custom messages here that you want to override...
+
+});
+
+
+// CleverForm instance here....
+
+ ```
+
+ ⚠️ Customized error messages must be on top of CleverForm instances.
+
+## Placeholders
+Error messages contain placeholders, they will be replaced depending on the validation details value.
+
+Placeholders denoted by a colon (__:__) prefix.
+
+One of the most important  placeholders is the __:fieldName__ that will be replaced by the field name value when the validation error message is emitted.
+
+
+
+
+## Default messages
+Below are the lists of built-in rules error messages with placeholders.
+
+💡 You can use it as your guide for creating your custom error message.
+
+
+```js
+{
+    required:'The :fieldName field is required.',
+
+    minLen:'The :fieldName must be at least :min characters.',
+    maxLen: 'The :fieldName may not be greater than :max characters.',
+    betweenLen: 'The :fieldName must be :min to :max characters.',
+
+    accepted: 'The :fieldName must be accepted.',
+
+    alpha: 'The :fieldName may only contain letters.',
+    alphaNum: 'The :fieldName may only contain letters and numbers.',
+    alphaDash: 'The :fieldName may only contain letters, numbers, dashes and underscores.',
+    
+
+    email: 'The :fieldName must be a valid email address.',
+    matched: 'The :fieldName does not match :fieldToMatch.',
+
+    min: 'The :fieldName must be at least :min.',
+    max: 'The :fieldName may not be greater than :max.',
+    
+    numeric: 'The :fieldName must be a number.',
+    integer: 'The :fieldName must be an integer.',
+    positive: 'The :fieldName must be a positive number.',
+    negative: 'The :fieldName must be a negative number.',
+
+    ip: 'The :fieldName must be a valid IP address.',
+    ipv4: 'The :fieldName must be a valid IPv4 address.',
+    ipv6: 'The :fieldName must be a valid IPv6 address.',
+
+    extensions: 'Select :_extentionNames file/s only for :fieldName.',
+
+    minFS: 'Each :fieldName file must be at least :minSize :sizeUnit.',
+    maxFS: 'Each :fieldName file may not be greater than :maxSize :sizeUnit.',
+    betweenFS: 'Each :fieldName file must be :minSize to :maxSize :sizeUnit.',
+
+    minTFS: ':fieldName total file size must be at least :minSize :sizeUnit.',
+    maxTFS: ':fieldName total file size may not be greater than :maxSize :sizeUnit.',
+    betweenTFS: ':fieldName total file size must be :minSize to :maxSize :sizeUnit.',
+    
+    
+    minFiles: 'Select minimum of :min files for :fieldName',
+    maxFiles: 'Select maximum of :max files for :fieldName',
+    exactFiles: 'Select exactly :exactFileCount files for :fieldName',
+}
+```
+

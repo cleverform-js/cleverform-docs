@@ -1,0 +1,72 @@
+---
+name: Custom validation rule
+route: /rules/custom-validation-rule
+menu: Validation rules
+---
+# Custom validation rule
+
+You can add custom validation rules where you have control of how validation is done.
+
+Your logic must determine if the field value passed your validation rule.
+
+To do that, you have to follow some simple rules to have a working customized validation rule.
+
+Use the __CleverForm's__ static method __addRule__ API to create your very own validation rules.
+
+>   CleverForm.addRule(RuleObject)
+
+⚠️ You don't need to use the __new__ keyword when creating a custom rule. It is only used when instantiating a form.
+
+
+## Rule Object properties
+The addRule method expects a ruleObject parameter that has __3__ properties.
+
+
+| Property | Description | Type
+| :-- | :-: | :-: 
+| name | __Required__ - the name of your custom validation rule. | __string__
+| errorMessage | __Required__ - the custom error message that will be used. | __string__
+| validate| __Required__ - the callback function that contains your validation codes.<br/>The function must have a __fieldValue__ parameter which is the field's value under validation.<br/>You can use that value for your validation rules internal logic.<br/> The __fieldValue__ is a string type, so if you're dealing with number fields, you must use _parseInt()_. <br/> <br/>⚠️ Return __true__ inside the function if the value passed your logic, otherwise __false__.<br/>⚠️ Omitting a return statement inside your function will let your validation rule fails and emit error all the time. | __function__ 
+
+⚠️ Properties are case sensitive.
+
+
+## Example 
+```js
+
+// Create a custom validation rule `divisibleBy5`
+
+CleverForm.addRule({
+
+  name: "divisibleBy5",
+  errorMessage: "The :fieldName field must accept number divisible by 5.",
+  validate: function (fieldValue) {
+    // Your validation logic ...
+
+    const number = parseInt(fieldValue);
+    if (number % 5 === 0) {
+        // true  - means value passed your validation logic
+        return true;
+    } else {
+        // false - means value failed your validation logic, your custom errorMessage will be displayed.
+        return false;
+    }
+  }, // validate end
+
+});
+
+
+// Use your custom validation rule after adding
+
+const mySpecialForm = new CleverForm({
+    id: "formIdHere",
+    rules: {
+        age : "divisibleBy5",  
+        //other fields here...
+    },
+    // ...
+});
+
+```
+
+⚠️ You should not use any built-in rule names to your custom rule to avoid rule names collision.

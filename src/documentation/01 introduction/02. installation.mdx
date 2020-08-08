@@ -4,6 +4,67 @@ route: /intro/installation
 menu: Introduction
 ---
 
+import DynamicCDN from '../../components/DynamicCDN.js'
+import DynamicButton from '../../components/DynamicButton.js'
 
 # Installation
-..............
+
+
+## # <Script\> include
+
+Download and include with a _<script\>_ tag in your project.
+
+
+
+<DynamicButton
+    name='Development Version 🛠️'
+    file='cleverform.dev.js'
+/>
+<br/>
+<br/>
+<DynamicButton
+    name='Production Version 🚀'
+    file='cleverform.prod.min.js'
+/>
+
+<br/><br/>
+
+💡 __CleverForm__ will be registered as a global variable.
+
+
+## # CDN
+
+
+<!-- ```js
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+``` -->
+
+For _development_ 🛠️
+
+<DynamicCDN file='cleverform.dev.js' />
+
+<br/>
+
+For _production_ 🚀, minified
+
+<DynamicCDN file='cleverform.prod.min.js' />
+
+
+
+## # NPM
+
+NPM is the recommended installation method when building large scale applications.
+
+```cli
+
+$ npm install cleverform
+
+```
+
+## # Yarn
+
+```cli
+
+$ yarn add cleverform
+
+```
