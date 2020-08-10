@@ -42,6 +42,7 @@ export default {
         "Custom validation rule", // 04. customized-error-message
       ],
     },
+    // "Changelogs",
   ],
 
   plugins: [
