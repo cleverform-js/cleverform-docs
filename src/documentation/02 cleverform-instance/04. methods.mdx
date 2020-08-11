@@ -6,4 +6,75 @@ menu: CleverForm instance
 
 
 # Instance's Methods
-..............
+Every CleverForm's instance has handy methods you can work method.
+
+>💡 Instance's methods are different from CleverForm's static method.
+Instance's methods can be accessed through an instance while the CleverForm's static methods are accessed 
+directly in __CleverForm__ namespace.
+
+
+
+
+## # validate()
+Sometimes you want to trigger form validation with out user interaction.
+
+__validate()__ method trigger form validation at runtime with out clicking the submit button.
+
+```js
+
+// Instantiation
+const regForm = new CleverForm({...});
+
+...
+
+//Sample usage : trigger the form validation
+regForm.validate();
+
+
+```
+
+
+
+## # reset()
+Reset the form and remove the error messages in the DOM.
+
+This method returns an object.
+
+The object is a collection of raw or unvalidated field values that are reset.
+
+```js
+
+// Instantiation
+const regForm = new CleverForm({...});
+
+...
+
+//Sample usage : reset the form and return the an object
+var previousInputs = regForm.reset();
+
+// prints the reset field inputs
+console.log(previousInputs);
+
+
+```
+
+
+
+## # rawData()
+Return the unvalidated form fields values in an object, even the form does not pass all fields validation rules.
+
+```js
+
+// Instantiation
+const regForm = new CleverForm({...});
+
+...
+
+//Sample usage : access the unvalidated fields values
+var rawData = regForm.rawData();
+
+// prints the unvalidate field values
+console.log(rawData);
+
+
+```

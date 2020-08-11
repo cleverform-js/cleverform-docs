@@ -18,7 +18,7 @@ There are three (3) form events we can respond to or listen to.
 - On Error, _triggered event when at least 1 field in the form has an error when trying to submit._
 - On Success, _triggered event when a form has no error when submitted._ -->
 
-__formEvents__ option contains the forms events object which is __[event name] : [callback function]__ value pairs. 
+__formEvents__ option contains the forms events object which is __[event name] / [callback function]__ value pairs. 
 
 
 ```js
@@ -52,9 +52,9 @@ const regForm = new CleverForm({
 
 💡 Event property names are case sensitive.
 
-💡 Event's callback functions/listeners are __OPTIONAL__.
+💡 The event's callback functions/listeners are __OPTIONAL__.
 
-💡 __onError__ and __onSuccess__ callback functions have access to certain paramaters that you can traverse in your callback function block statement. 
+💡 __onError__ and __onSuccess__ callback functions have access to parameters that you can work within your callback function block statement. 
 
 
 ## # onInit
@@ -82,16 +82,16 @@ onInit: function() {
 
 On form error, _triggered event when at least 1 field in the form has an error when trying to submit._
 
-__onError__ callback function can access three (3) optional parameters provided by CleverForm.
+The __onError__ callback function can access three (3) optional parameters provided by CleverForm.
 
 
 | Order | Value type  &nbsp;| <center>Description</center>| Name | 
 | :----: | :-----: | :-----: | :-----:     |
-| 1st param | _object_ | -  collections of field errors, __[fieldName] : [errorMsg]__ value pairs.   | __errors__ |
+| 1st param | _object_ | -  collections of field errors, __[fieldName] / [errorMsg]__ value pairs.   | __errors__ |
 | 2nd param | _number_ | - the number of fields with error  | __errorsCount__ |
 | 3rd param | _number_ | - the number of attempts to submit form with error.  | __attemptsWithError__ |
 
-💡 The parameter names above are the suggested name's , you can change parameters name.
+💡 The parameter names above are the suggested name's, you can change parameters name.
 What matters is the order of the parameter.
 
 ```js
@@ -115,20 +115,20 @@ onError: function( errors, errorsCount, attemptsWithError ) {
 
 On form success, _triggered event when a form has no error when submitted._
 
-__onSuccess__ callback function can access three (3) optional parameters provided by CleverForm.
+The __onSuccess__ callback function can access three (3) optional parameters provided by CleverForm.
 
 
 | Order | Value type  &nbsp;| <center>Description</center>| Name | 
 | :----: | :-----: | :-----: | :-----:     |
-| 1st param | _object_ | -  collections of fields value, __[field name] : [field value]__ value pairs.   | __validatedData__ |
+| 1st param | _object_ | -  collections of fields value, __[field name] / [field value]__ value pairs.   | __validatedData__ |
 | 2nd param | _object_ | - validated data in a [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) instance.   | __formData__ |
 | 3rd param | _function_ | - You can invoke formSubmit() method to submit the form via normal submit | __formSubmit__ |
 
-💡 The parameter names above are the suggested name's , you can change parameters name.
+💡 The parameter names above are the suggested name's, you can change parameters name.
 What matters is the order of the parameter.
 
 💡 __formData__ can then be easily sent via the XMLHttpRequest.send() or other HTTP request client.
-This can be convenient to those who are working with PHP in the server.
+This can be convenient for those who are working with PHP on the server.
 
 ```js
 // Example Usage
@@ -139,13 +139,10 @@ onSuccess: function( validatedData, formData, formSubmit ) {
     console.log("Fields data :" + validatedData);
 
     // submit formData here via fetch, AJAX ,axios or other XML HTTP clients.
-
     
-
-
 },
 ...
 ```
 
-💡 When a form is submitted with out any error and if the __onSuccess__ callback function is omitted,
+💡 When a form is submitted without any error and if the __onSuccess__ callback function is omitted,
 the form will be submitted normally.
