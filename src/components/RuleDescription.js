@@ -8,8 +8,8 @@ const ruleDescription = (props) => {
   //notes to display if have
   const notes = props.notes
     ? props.notes.map((note, index) => (
-        <p key={index + 1}>
-          <span>💡</span> Note: <span dangerouslySetInnerHTML={{ __html: note }} />{" "}
+        <p key={index + 1} className="note">
+          <span>💡</span> Note: <i dangerouslySetInnerHTML={{ __html: note }} />{" "}
         </p>
       ))
     : "";
