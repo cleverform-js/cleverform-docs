@@ -20,10 +20,10 @@ export default {
 
     // "Examples of implementation per Css framework",
 
-    // {
-    //   name: "Examples",
-    //   menu: ["Implementation", "Bootstrap", "Bulma", "Other CSS framework"],
-    // },
+    {
+      name: "Examples",
+      menu: ["Basic"], //"Bootstrap", "Bulma", "Other CSS framework"
+    },
 
     // "Cleverform instance",
 
