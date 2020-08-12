@@ -1,5 +1,5 @@
 a{
-    color: red;
+    color: #00bcd4;
 }
 
 /* Style buttons */
@@ -19,4 +19,9 @@ a{
 .btn-js-download:hover {
   background-color: RoyalBlue;
   opacity: 1;
+}
+
+.note{
+  background-color: #ededed;
+  padding: 5px 10px;
 }

@@ -10,7 +10,7 @@ export default {
 
   // assets dir
   // public: "public", // default publicg
-  
+
   menu: [
     "Welcome!",
     {
@@ -18,11 +18,18 @@ export default {
       menu: ["What is cleverform.js?", "Installation", "Simplest Usage"],
     },
 
+    // "Examples of implementation per Css framework",
+
+    // {
+    //   name: "Examples",
+    //   menu: ["Implementation", "Bootstrap", "Bulma", "Other CSS framework"],
+    // },
+
     // "Cleverform instance",
 
     {
       name: "CleverForm instance",
-      menu: ["Instantiation", "Options", "Form events"],
+      menu: ["Instantiation", "Options", "Form events", "Methods"],
     },
 
     {
@@ -35,6 +42,7 @@ export default {
         "Custom validation rule", // 04. customized-error-message
       ],
     },
+    // "Changelogs",
   ],
 
   plugins: [

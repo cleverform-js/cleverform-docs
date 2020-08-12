@@ -27,7 +27,7 @@ class DynamicButton extends Component {
     });
   }
 
-  downloadHandler(){
+  downloadHandler = () => {
 
     axios
     .get(`https://cdn.jsdelivr.net/npm/cleverform@${this.state.version}/dist/${this.props.file}`)
@@ -62,7 +62,7 @@ class DynamicButton extends Component {
     return (
       <button
         className="btn btn-js-download"
-        onClick={ this.downloadHandler.bind(this) }
+        onClick={ this.downloadHandler }
       >
         {this.props.name}
       </button>
