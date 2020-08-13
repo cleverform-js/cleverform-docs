@@ -10,7 +10,7 @@ const PenCode = () => {
     
     return (
       <p
-        class="codepen"
+        className="codepen"
         data-height="500"
         data-theme-id="dark"
         data-default-tab="js,result"
