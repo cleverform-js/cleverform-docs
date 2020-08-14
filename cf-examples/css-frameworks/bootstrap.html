@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Bootstrap with Cleverform</title>
+</head>
+
+<body>
+    <div class="container mt-3 border rounded p-5 mb-5" style="max-width: 900px; margin: 0 auto; border-width: 3px !important; ">
+
+        <h3 class="text-center mb-5">
+            <img class="mb-3" src="https://getbootstrap.com/docs/4.4/assets/brand/bootstrap-social-logo.png" alt="Bootstrap" style="height: 80px;">
+            <br/>
+            CleverForm with Bootstrap
+        </h3>
+
+        <form method="POST" id="bootstrapForm" action="action_page.php">
+        
+        
+            <!-- text type -->
+            <div class="form-group row">
+                <label for="name" class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="name">
+                    <div cf-msg="name"></div>
+                </div>
+            </div>
+        
+            <!-- number type -->
+            <div class="form-group row">
+                <label for="age" class="col-sm-2 col-form-label">Age</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" name="age">
+                    <div cf-msg="age"></div>
+                </div>
+            </div>
+            
+            <!-- email type -->
+            <div class="form-group row">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" name="email">
+                    <div cf-msg="email"></div>
+                </div>
+            </div>
+
+            
+        
+            <!-- password type -->
+            <div class="form-group row">
+                <label for="password" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" name="password">
+                    <div cf-msg="password"></div>
+        
+                </div>
+            </div>
+            
+            <!-- password type confirm-->
+            <div class="form-group row">
+                <label for="confirm_password" class="col-sm-2 col-form-label">Confirm password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" name="confirm_password">
+                    <div cf-msg="confirm_password"></div>
+        
+                </div>
+            </div>
+        
+        
+            <!-- textarea tag -->
+            <div class="form-group row">
+                <label for="address" class="col-sm-2 col-form-label">Address</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" name="address" rows="3"></textarea>
+                    <div cf-msg="address"></div>
+                </div>
+            </div>
+        
+        
+            <!-- select tag multiple -->
+            <div class="form-group row">
+                <label for="pets" class="col-sm-2 col-form-label">Your pets</label>
+                <div class="col-sm-10">
+                    <select class="custom-select" name="pets[]" multiple>
+                        <option value="dog">Dog</option>
+                        <option value="cat">Cat</option>
+                        <option value="bird">Bird</option>
+                    </select>
+                    <div cf-msg="pets[]"></div>
+        
+                </div>
+            </div>
+            
+            <!-- select tag -->
+            <div class="form-group row">
+                <label for="favorite_pet" class="col-sm-2 col-form-label">Favorite Pet</label>
+                <div class="col-sm-10">
+                    <select class="custom-select" name="favorite_pet" >
+        
+                        <option value="">Select pet</option>
+                        <option value="dog">Dog</option>
+                        <option value="cat">Cat</option>
+                        <option value="bird">Bird</option>
+                    </select>
+                    <div cf-msg="favorite_pet"></div>
+        
+                </div>
+            </div>
+        
+        
+        
+            <!-- radio tag -->
+            <div class="form-group row">
+                <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" value="male">
+                        <label class="form-check-label" for="male">
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" value="female">
+                        <label class="form-check-label" for="female">
+                            Female
+                        </label>
+                    </div>
+                    <div class="form-check">
+        
+                        <input class="form-check-input" type="radio" name="gender" value="others">
+                        <label class="form-check-label" for="others">
+                            Others
+                        </label>
+        
+                        <div cf-msg="gender"></div>
+                    </div>
+                </div>
+            </div>
+        
+        
+            <!-- file input type -->
+            <div class="form-group row">
+                <label for="resume" class="col-sm-2 col-form-label">Resume</label>
+                <div class="col-sm-10">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="resume">
+                        <label class="custom-file-label" for="resume">Choose resume</label>
+
+                        <div cf-msg="resume"></div>
+                    </div>
+                </div>
+            </div>
+            
+
+            <!-- file input type multiple -->
+            <div class="form-group row">
+                <label for="photos" class="col-sm-2 col-form-label">Photos</label>
+                <div class="col-sm-10">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="photos[]" multiple>
+                        <label class="custom-file-label" for="photos">Choose photos</label>
+
+                        <div cf-msg="photos[]"></div>
+                    </div>
+                </div>
+            </div>
+        
+        
+        
+            <!-- checkbox type -->
+            <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="tac">
+                        <label class="form-check-label" for="tac">
+                            Terms and condition
+                        </label>
+
+                        <div cf-msg="tac"></div>
+                    </div>
+                </div>
+            </div>
+        
+        
+        
+            <!-- Submit button -->
+        
+            <div class="form-group row">
+                <div class="offset-sm-2 col-sm-10">
+                    <button disabled type="submit" class="btn btn-primary btn-block" cf-submitting-msg='Submitting...'>Submit</button>
+                </div>
+            </div>
+        
+        </form>
+
+
+    </div>
+
+
+
+
+    <!-- Cleverform import -->
+    <script src="https://cdn.jsdelivr.net/npm/cleverform@0.1.2/dist/cleverform.dev.js"></script>
+    <script>
+
+        const form = new CleverForm({
+
+            id: "bootstrapForm",
+
+            rules: {
+                name: 'required | minLen:3 | maxLen:50',
+                age: 'required | min:18 | max:45 | numeric | positive',
+                email: 'required | email',
+                password: 'required | betweenLen:6,10',
+                confirm_password: 'required | matched:password',
+                address: 'required | minLen:10',
+                'pets[]': 'required',
+                favorite_pet: 'required',
+                gender: 'required',
+                resume: 'required | extensions:msWord,pdf',
+                'photos[]': 'required | exactFiles:3 | extensions:image',
+                tac: 'accepted',
+            },
+
+            customName: {
+                confirm_password: 'confirm password',
+                'pets[]': 'pets',
+                favorite_pet: 'favorite pet',
+                'photos[]': 'photos',
+                tac: 'terms and condition',
+            },
+
+            cssClass: {
+                // the 3 CSS classes below are from the Bootstrap framework
+                fieldSuccess: "is-valid",
+                fieldError: "is-invalid",
+                labelError: "invalid-feedback", // or "invalid-tooltip"
+            },
+
+            // Note: You can omit form events if you are only submitting the form via normal POST or GET (ex. submitting to PHP server)
+            formEvents: {
+
+                onInit: function () {
+                    console.log("🚀 bootstrapForm initialized ");
+                },
+
+                onSuccess: function (validatedData, formData, formSubmit) {
+                    console.log("✅ bootstrapForm has no validation error. Submit the form now via XML HTTP requests.");
+                    console.log("✅ Fields data :", validatedData);
+                    // submit formData here via fetch, AJAX ,axios or other XML HTTP clients.
+
+                },
+
+                onError: function (errors, errorsCount, attemptsWithError) {
+                    console.log("❌ bootstrapForm has validation error/s");
+                    console.log("❌ Errors :", errors);
+                    console.log("❌ Fields with error count:" + errorsCount);
+                    console.log("❌ You have tried " + attemptsWithError + " attempt/s in submitting the form with error.")
+                },
+            },
+
+        });
+
+    </script>
+</body>
+    
+</html>

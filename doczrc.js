@@ -20,11 +20,6 @@ export default {
 
     // "Examples of implementation per Css framework",
 
-    // {
-    //   name: "Examples",
-    //   menu: ["Implementation", "Bootstrap", "Bulma", "Other CSS framework"],
-    // },
-
     // "Cleverform instance",
 
     {
@@ -42,7 +37,13 @@ export default {
         "Custom validation rule", // 04. customized-error-message
       ],
     },
+
+    {
+      name: "Examples",
+      menu: ["Basic","Advance","CSS frameworks"], //"Bootstrap", "Bulma", "Other CSS framework"
+    },
     // "Changelogs",
+
   ],
 
   plugins: [

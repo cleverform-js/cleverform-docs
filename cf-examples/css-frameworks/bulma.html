@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bulma with Cleverform</title>
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+
+    <!-- font-awesome icons -->
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    
+</head>
+
+<body>
+    
+    <div class="container box px-6 mt-6" style="max-width: 900px; margin: 0 auto;">
+        
+
+        <h2 class="subtitle has-text-centered mb-5">
+            <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma"
+                style="height: 80px;" class="mb-3">
+            <br />
+            CleverForm with Bulma
+        </h2>
+
+
+        <form method="POST" id="bulmaForm" action="action_page.php">
+
+
+            <!-- text type -->
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Name</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" type="text" name="name">
+                        </div>
+                        <p cf-msg="name" class="help"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- number type -->
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Age</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" type="number" name="age">
+                        </div>
+                        <p cf-msg="age" class="help"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- email type -->
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Email</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" type="email" name="email">
+                        </div>
+                        <p cf-msg="email" class="help"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- password type -->
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Password</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" type="password" name="password">
+                        </div>
+                        <p cf-msg="password" class="help"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- password type confirm-->
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Confirm password</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" type="password" name="confirm_password">
+                        </div>
+                        <p cf-msg="confirm_password" class="help"></p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- textarea tag -->
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Address</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <textarea class="textarea" name="address"></textarea>
+                        </div>
+                        <p cf-msg="address" class="help"></p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- select tag multiple -->
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Your pets</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <div class="select is-multiple">
+                                <select name="pets[]" multiple>
+                                    <option value="dog">Dog</option>
+                                    <option value="cat">Cat</option>
+                                    <option value="bird">Bird</option>
+                                </select>
+                            </div>
+                        </div>
+                        <p cf-msg="pets[]" class="help"></p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- select tag -->
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Favorite Pet</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <div class="select">
+                                <select name="favorite_pet">
+                                    <option value="">Select pet</option>
+                                    <option value="dog">Dog</option>
+                                    <option value="cat">Cat</option>
+                                    <option value="bird">Bird</option>
+                                </select>
+                            </div>
+                        </div>
+                        <p cf-msg="favorite_pet" class="help"></p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- radio tag -->
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Gender</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <label class="radio">
+                                <input type="radio" name="gender" value="male">
+                                Male
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="gender" value="female">
+                                Female
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="gender" value="others">
+                                Others
+                            </label>
+                        </div>
+                        <p cf-msg="gender" class="help"></p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- file input type -->
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Resume</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <div class="file">
+                                <label class="file-label">
+                                    <input class="file-input" type="file" name="resume">
+                                    <span class="file-cta">
+                                        <span class="file-icon">
+                                            <i class="fas fa-upload"></i>
+                                        </span>
+                                        <span class="file-label">
+                                            Choose a file…
+                                        </span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <p cf-msg="resume" class="help"></p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- file input type multiple -->
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Photos</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <div class="field">
+                                <div class="file is-left is-boxed has-name">
+                                    <label class="file-label">
+                                        <input class="file-input" type="file" name="photos[]" multiple>
+                                        <span class="file-cta">
+                                            <span class="file-icon">
+                                                <i class="fas fa-upload"></i>
+                                            </span>
+                                            <span class="file-label">
+                                                Upload 3 photos
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <p cf-msg="photos[]" class="help"></p>
+                    </div>
+                </div>
+            </div>
+
+            
+            
+
+            <!-- submit button -->
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <button disabled class="button is-primary is-fullwidth" type="submit" cf-submitting-msg='Submitting...'>
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+
+    </div>
+
+    <!-- Cleverform import -->
+    <script src="https://cdn.jsdelivr.net/npm/cleverform@0.1.2/dist/cleverform.dev.js"></script>
+    <script>
+
+        const form = new CleverForm({
+
+            id: "bulmaForm",
+
+            rules: {
+                name: 'required | minLen:3 | maxLen:50',
+                age: 'required | min:18 | max:45 | numeric | positive',
+                email: 'required | email',
+                password: 'required | betweenLen:6,10',
+                confirm_password: 'required | matched:password',
+                address: 'required | minLen:10',
+                'pets[]': 'required',
+                favorite_pet: 'required',
+                gender: 'required',
+                resume: 'required | extensions:msWord,pdf',
+                'photos[]': 'required | exactFiles:3 | extensions:image',
+                tac: 'accepted',
+            },
+
+            customName: {
+                confirm_password: 'confirm password',
+                'pets[]': 'pets',
+                favorite_pet: 'favorite pet',
+                'photos[]': 'photos',
+                tac: 'terms and condition',
+            },
+
+            cssClass: {
+                // the 3 CSS classes below are from the bulma framework
+                fieldSuccess: "is-success",
+                fieldError: "is-danger",
+                labelError: "is-danger", 
+            },
+
+            // Note: You can omit form events if you are only submitting the form via normal POST or GET (ex. submitting to PHP server)
+            formEvents: {
+
+                onInit: function () {
+                    console.log("🚀 bulmaForm initialized ");
+                },
+
+                onSuccess: function (validatedData, formData, formSubmit) {
+                    console.log("✅ bulmaForm has no validation error. Submit the form now via XML HTTP requests.");
+                    console.log("✅ Fields data :", validatedData);
+                    // submit formData here via fetch, AJAX ,axios or other XML HTTP clients.
+
+                },
+
+                onError: function (errors, errorsCount, attemptsWithError) {
+                    console.log("❌ bulmaForm has validation error/s");
+                    console.log("❌ Errors :", errors);
+                    console.log("❌ Fields with error count:" + errorsCount);
+                    console.log("❌ You have tried " + attemptsWithError + " attempt/s in submitting the form with error.")
+                },
+            },
+
+        });
+
+    </script>
+</body>
+</html>
