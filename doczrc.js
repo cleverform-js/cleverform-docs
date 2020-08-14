@@ -40,7 +40,7 @@ export default {
 
     {
       name: "Examples",
-      menu: ["Basic"], //"Bootstrap", "Bulma", "Other CSS framework"
+      menu: ["Basic","Advance","CSS frameworks"], //"Bootstrap", "Bulma", "Other CSS framework"
     },
     // "Changelogs",
 

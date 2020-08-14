@@ -1,0 +1,67 @@
+---
+name: Advance
+route: /examples/advance
+menu: Examples
+---
+
+import PenCode from '../../components/PenCode'
+
+# Advance examples
+
+## # Custom Error message
+You can customize the error message of validation rules.
+
+<PenCode 
+    penID="abNNoGN"
+    height="620"
+/>
+
+<br/>
+<br/>
+
+___
+
+## # Custom validation rules
+
+You can create your own validation rules, with your custom name, logic, and error message.
+
+<PenCode 
+    penID="abNNoKN"
+    height="620"
+/>
+
+<br/>
+<br/>
+
+___
+
+## # Complex files rules
+
+In this example, you can have <input type='files' /\> with complex file validation.
+
+The validation rules applied are:
+
+```js
+/**
+ * 'required'              -> The field is required
+ * 'extensions:image'     -> The selected files must be an image file
+ * 'minFiles:3'           -> Select at least 3 files
+ * 'maxFiles:5'           -> Select a maximum of 5 files
+ * 'maxFS:1,MB'          -> Each file SIZE must be less than or equal to 1 MB
+ * 'betweenTFS:3,4,MB'  -> The TOTAL file size of all selected files must be between 3 - 4 MB.
+ * /
+```
+
+> 💡 This will save you a lot of server bandwidth since the file/s validation will be on the client-side.
+
+
+<PenCode 
+    penID="yLOOBqd"
+    height="620"
+/>
+
+
+<br/>
+<br/>
+
+___
