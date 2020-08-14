@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Complex files rules | CleverForm</title>
+</head>
+
+<body>
+    <div class="container mt-3 border rounded p-5 mb-5"
+        style="max-width: 900px; margin: 0 auto; border-width: 3px !important; ">
+
+        <h3 class="text-center mb-5">Complex files rules</h3>
+
+        <form method="POST" id="myForm" action="action_page.php">
+
+
+            <!-- number type -->
+            <div class="form-group row">
+                <label for="photos" class="col-sm-2 col-form-label">Photos</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control" name="photos">
+                    <div cf-msg="photos"></div>
+                </div>
+            </div>
+
+
+
+            <!-- Submit button -->
+
+            <div class="form-group row">
+                <div class="offset-sm-2 col-sm-10">
+                    <button disabled type="submit" class="btn btn-primary btn-block" cf-submitting-msg='Submitting...'>
+                        Submit
+                    </button>
+                </div>
+            </div>
+
+        </form>
+
+
+    </div>
+
+
+
+
+    <!-- Cleverform import -->
+    <script src="https://cdn.jsdelivr.net/npm/cleverform@0.1.2/dist/cleverform.dev.js"></script>
+    <script>
+
+
+
+
+
+        const form = new CleverForm({
+
+            id: "myForm",
+            rules: {
+                photos: 'required | extensions:image | minFiles:3 | maxFiles:5 | maxFS:1,MB | betweenTFS:1,4,MB',
+            },
+
+            // =============    `photos` validation rules meaning   ================
+
+            // 'required'              -> The field is required
+            // 'extensions: image'     -> The selected files must be an image file
+            // 'minFiles: 3'           -> Select at least 3 files
+            // 'maxFiles: 5'           -> Select a maximum of 5 files
+            // 'maxFS: 1, MB'          -> Each file SIZE must be less than or equal to 1 MB
+            // 'betweenTFS: 3, 4, MB'  -> The TOTAL file size of all selected files must be between 3 - 4 MB.
+
+        });
+
+
+
+    </script>
+</body>
+
+</html>

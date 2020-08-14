@@ -27,7 +27,7 @@
         </h2>
 
 
-        <form method="POST" id="bootstrapForm" action="action_page.php">
+        <form method="POST" id="bulmaForm" action="action_page.php">
 
 
             <!-- text type -->
@@ -262,8 +262,8 @@
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <button disabled class="button is-primary is-fullwidth" type="submit" >
-                                Register
+                            <button disabled class="button is-primary is-fullwidth" type="submit" cf-submitting-msg='Submitting...'>
+                                Submit
                             </button>
                         </div>
                     </div>
@@ -281,7 +281,7 @@
 
         const form = new CleverForm({
 
-            id: "bootstrapForm",
+            id: "bulmaForm",
 
             rules: {
                 name: 'required | minLen:3 | maxLen:50',
@@ -307,7 +307,7 @@
             },
 
             cssClass: {
-                // the 3 CSS classes below are from the Bootstrap framework
+                // the 3 CSS classes below are from the bulma framework
                 fieldSuccess: "is-success",
                 fieldError: "is-danger",
                 labelError: "is-danger", 
@@ -317,18 +317,18 @@
             formEvents: {
 
                 onInit: function () {
-                    console.log("🚀 bootstrapForm initialized ");
+                    console.log("🚀 bulmaForm initialized ");
                 },
 
                 onSuccess: function (validatedData, formData, formSubmit) {
-                    console.log("✅ bootstrapForm has no validation error. Submit the form now via XML HTTP requests.");
+                    console.log("✅ bulmaForm has no validation error. Submit the form now via XML HTTP requests.");
                     console.log("✅ Fields data :", validatedData);
                     // submit formData here via fetch, AJAX ,axios or other XML HTTP clients.
 
                 },
 
                 onError: function (errors, errorsCount, attemptsWithError) {
-                    console.log("❌ bootstrapForm has validation error/s");
+                    console.log("❌ bulmaForm has validation error/s");
                     console.log("❌ Errors :", errors);
                     console.log("❌ Fields with error count:" + errorsCount);
                     console.log("❌ You have tried " + attemptsWithError + " attempt/s in submitting the form with error.")

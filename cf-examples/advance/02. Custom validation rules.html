@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Custom validation rules | CleverForm</title>
+</head>
+
+<body>
+    <div class="container mt-3 border rounded p-5 mb-5"
+        style="max-width: 900px; margin: 0 auto; border-width: 3px !important; ">
+
+        <h3 class="text-center mb-5">Custom validation rules</h3>
+
+        <form method="POST" id="myForm" action="action_page.php">
+
+
+            <!-- number type -->
+            <div class="form-group row">
+                <label for="age" class="col-sm-2 col-form-label">Age</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" name="age">
+                    <div cf-msg="age"></div>
+                </div>
+            </div>
+
+
+
+            <!-- Submit button -->
+
+            <div class="form-group row">
+                <div class="offset-sm-2 col-sm-10">
+                    <button disabled type="submit" class="btn btn-primary btn-block" cf-submitting-msg='Submitting...'>
+                        Submit
+                    </button>
+                </div>
+            </div>
+
+        </form>
+
+
+    </div>
+
+
+
+
+    <!-- Cleverform import -->
+    <script src="https://cdn.jsdelivr.net/npm/cleverform@0.1.2/dist/cleverform.dev.js"></script>
+    <script>
+
+
+        // Create a custom validation rule `divisibleBy5`
+        CleverForm.addRule({
+            name: "divisibleBy5",
+            errorMessage: "The :fieldName field must accept number divisible by 5.",
+            validate: function (fieldValue) {
+                // Your validation logic ...
+                const number = parseInt(fieldValue);
+                if (number % 5 === 0) {
+                    // true  - means value passed your validation logic
+                    return true;
+                } else {
+                    // false - means value failed your validation logic, your custom errorMessage will be displayed.
+                    return false;
+                }
+            }
+        });
+
+
+
+        const form = new CleverForm({
+
+            id: "myForm",
+            rules: {
+                age: 'required | divisibleBy5',
+            },
+        });
+
+
+
+    </script>
+</body>
+
+</html>
