@@ -1,6 +1,6 @@
 ﻿# Cleverform Docs
 
-📄 Visit [cleverform.org](https://cleverform.org) for official documentation for `cleverform.js` library
+📄 Visit [cleverform](https://cleverform.netlify.app/) for official documentation for `cleverform.js` library
 
 This site is built with [docz](https://www.docz.site/). Site content is written in MDX format located in `src/documentation` dir. _Pull requests welcome!_
 
